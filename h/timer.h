@@ -1,4 +1,8 @@
 
+#ifndef TIMER_H_INCLUDED
+#define TIMER_H_INCLUDED
+
+
 #define	COUNTER	0
 #define TIMER	1
 #define	COUNTER_RESET	1
@@ -103,3 +107,6 @@ char tc_set_match_control(unsigned char TC_number, unsigned char register_number
 unsigned int tc_get_capture_value(unsigned char TC_number, unsigned char register_number);
 char tc_set_capture_control(unsigned char TC_number, unsigned char register_number, unsigned char capture_mode);
 char tc_io_capture_config(unsigned char TC_number, unsigned char register_number, unsigned char capture_pin_num);
+
+#include "timer.c"
+#endif

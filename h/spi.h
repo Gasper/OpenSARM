@@ -1,3 +1,7 @@
+
+#ifndef SPI_H_INCLUDED
+#define SPI_H_INCLUDED
+
 #define MODE    3
 #define MSTR    5
 #define LSBF    6
@@ -16,3 +20,5 @@ int spi_receive_data(unsigned char spi_number, unsigned char slave_number);
 char spi_send_array(unsigned char spi_number, unsigned char slave_number, int *data, unsigned int array_size);
 char spi_slave_init(unsigned char spi_number, unsigned char slave_number);
 
+#include "spi.c"
+#endif

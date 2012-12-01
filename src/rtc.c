@@ -4,6 +4,8 @@
  *
  */
 
+#ifdef RTC_H_INCLUDED
+
 #include "rtc.h"
 #include "lpc214x.h"
 #include "io.h"
@@ -249,3 +251,5 @@ int is_leap(unsigned int year)
 	else
 		return 0;
 }
+
+#endif

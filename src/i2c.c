@@ -4,9 +4,10 @@
  *
  */
 
+ #ifdef I2C_H_INCLUDED
+
  #include "lpc214x.h"
  #include "io.h"
- #include "i2c.h"
 
 char i2c_init(unsigned char i2c_number, unsigned int speed)
 {
@@ -237,3 +238,5 @@ void i2c0_receive(char *buf, unsigned int count)
 {
 	i2c_receive_string(0, buf, count);
 }
+
+#endif

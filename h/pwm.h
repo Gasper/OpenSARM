@@ -1,3 +1,7 @@
+
+#ifndef PWM_H_INCLUDED
+#define PWN_H_INCLUDED
+
 //stanja števca
 #define STOP_COUNTER 0x00
 #define START_COUNTER 0x01
@@ -117,3 +121,5 @@ unsigned char PWM_NastaviKanal(unsigned char kanal/*od PWM1-PWM6*/, unsigned cha
 void PWM_PonastaviPrekinitev(unsigned char kanal);
 void PWM_NastaviDogodek(unsigned char kanal, unsigned char dogodek);
 
+#include "pwm.c"
+#endif

@@ -4,31 +4,6 @@
 
 #include "lpc214x.h"
 
-#ifdef CPU_12MHZ
-#define CPU_FREQ 12000
-#define PLL_CONF 0x60 //P=8, M=1
-#endif
-
-#ifdef CPU_24MHZ
-#define CPU_FREQ 24000
-#define PLL_CONF 0x41 //P=4, M=2
-#endif
-
-#ifdef CPU_36MHZ
-#define CPU_FREQ 36000
-#define PLL_CONF 0x42 //P=4, M=3
-#endif
-
-#ifdef CPU_48MHZ
-#define CPU_FREQ 48000
-#define PLL_CONF 0x23 //P=2, M=4
-#endif
-
-#ifdef CPU_60MHZ
-#define CPU_FREQ 60000
-#define PLL_CONF 0x24 //P=2, M=5
-#endif
-
 
 /******************************************************************************
  *  Hardware connections on OpenSARM board v.1.0                              *
@@ -74,4 +49,5 @@ void set_pin_direction(unsigned int pinid, unsigned int dir);
 int read_pin(unsigned int pinid);
 void set_pin(unsigned int pinid, unsigned int value);
 
+#include "io.c"
 #endif // IO_H_INCLUDED

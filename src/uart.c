@@ -1,8 +1,10 @@
 /**
  * 2012 OpenSARM
  * Avtor: Jernej Sorta <jernejsorta@gmail.com>
- * 
+ *
  */
+
+#ifdef UART_H_INCLUDED
 
 #include "lpc214x.h"
 #include "io.h"
@@ -122,7 +124,7 @@ unsigned char putstring(unsigned char uart_number, char *string, unsigned int st
 		while (string_length--)
 			put_char(UART_1, *string++);
 	}
-	
+
 	return 1;
 }
 
@@ -143,16 +145,18 @@ unsigned char put_s(unsigned char uart_number, char *string)
 	{
 		while (*string)
 			put_char(UART_0, *string++);
-		
+
 		put_char(UART_0, '\n');
 	}
 	else
 	{
 		while (*string)
 			put_char(UART_1, *string++);
-		
+
 		put_char(UART_1, '\n');
 	}
 
 	return 1;
 }
+
+#endif

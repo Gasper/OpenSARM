@@ -1,3 +1,6 @@
+#ifndef ADC_H_INCLUDED
+#define ADC_H_INCLUDED
+
 #include "lpc214x.h"
 #include "io.h"
 
@@ -99,3 +102,5 @@ int adc_get_result(unsigned char adc_number, unsigned char adc_channel);
 unsigned char adc_is_done(unsigned char adc_number);
 unsigned char adc_set_io(unsigned char adc_number, unsigned char adc_channel);
 
+#include "adc.c"
+#endif

@@ -1,3 +1,6 @@
+#ifndef I2C_H_INCLUDED
+#define I2C_H_INCLUDED
+
 #include <lpc214x.h>
 #include <io.h>
 
@@ -19,3 +22,6 @@ void i2c0_init(int mode);
 void i2c0_start(int addr);
 void i2c0_stop();
 void i2c0_receive(char *buf, unsigned int count);
+
+#include "i2c.c"
+#endif

@@ -1,3 +1,7 @@
+
+#ifndef INT_H_INCLUDED
+#define INT_H_INCLUDED
+
 #define WDT 0
 #define ARMCore0 2
 #define ARMCore1 3
@@ -73,3 +77,6 @@ void PLL_ISR (void)   __attribute__((interrupt("IRQ")));
 void BOD_ISR (void)   __attribute__((interrupt("IRQ")));
 void EINT1_ISR (void)   __attribute__((interrupt("IRQ")));
 void EINT2_ISR (void)   __attribute__((interrupt("IRQ")));
+
+#include "interrupts.c"
+#endif

@@ -1,8 +1,10 @@
 /**
  * 2012 OpenSARM
  * Avtor: Jernej Sorta <jernejsorta@gmail.com>
- * 
+ *
  */
+
+#ifdef INT_H_INCLUDED
 
 #include "lpc214x.h"
 #include "interrupts.h"
@@ -125,8 +127,8 @@ void SSP_ISR(void)
 }
 
 void I2C0_ISR(void)
-{	
-	I2CONCLR |= (1 << SIC); 
+{
+	I2CONCLR |= (1 << SIC);
 	VICVectAddr = 0xFF; //Vpišemo karkoli, da se posodobi tabela pomembnosti
 }
 
@@ -182,3 +184,5 @@ void EINT2_ISR(void)
 	EXTINT = 0x02;
 	VICVectAddr = 0xFF; //Vpišemo karkoli, da se posodobi tabela pomembnosti
 }
+
+#endif

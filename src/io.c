@@ -1,49 +1,14 @@
 /**
- * 
+ *
  * 2012 OpenSARM
  * Avtor: Arpad Buerman
  * Za OpenSARM prilagodil: Samo Penič
- * 
+ *
  */
 
+#ifdef IO_H_INCLUDED
 
 #include "lpc214x.h"
-#include "io.h"
-
-/* Function is called from crt.s. It initializes cpu clock, MAM settings and fast GPIO */
-void Initialize(void)  {
-#define PLOCK 0x400
-
-	SCS |= 0x03; // We will use the fast interface...
-
-	// Setting Multiplier and Divider values
-	PLLCFG = PLL_CONF;
-
-	PLLFEED = 0xAA;
-	PLLFEED = 0x55;
-
-	// Enabling the PLL */
-	PLLCON = 0x1;
-
-	PLLFEED = 0xAA;
-	PLLFEED = 0x55;
-
-	// Wait for the PLL to lock to set frequency
-	while (!(PLLSTAT & PLOCK)) ;
-
-	// Connect the PLL as the clock source
-	PLLCON = 0x3;
-
-	PLLFEED = 0xAA;
-	PLLFEED = 0x55;
-
-	// Enabling MAM and setting number of clocks used for Flash memory fetch (4 cclks in this case)
-	MAMCR = 0x2;
-	MAMTIM = 0x4;
-
-	// Setting peripheral Clock (pclk) to System Clock (cclk)
-	VPBDIV = 0x1;
-}
 
 inline void _TimerInit(void)
 {
@@ -197,14 +162,14 @@ int _getkeys(void)
 	int i, state, revstate = 0;
 	state = (~(FIO0PIN) & KEYMASK);
 	state >>= 12;
-	
+
 	for (i = 0; i < 4; i++)
 	{
 		revstate |= state & 1;
 		state >>= 1;
 		revstate <<= 1;
 	}
-	
+
 	return revstate >> 1;
 }
 
@@ -220,9 +185,9 @@ int kbhit(void)
 		if ((keys1 & i) > (keys & i))
 			break;
 	}
-	
+
 	keys = keys1;
-	
+
 	switch (i)
 	{
 		case 8:
@@ -303,3 +268,5 @@ void _dacwrite(int val)
   if (val > 1023) val = 1023;
   DACR = (((val) & 0x3ff) << 6);
 }
+
+#endif

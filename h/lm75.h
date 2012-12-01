@@ -4,8 +4,8 @@
  * @brief I<sup>2</sup>C knjižnjica za temperaturni senzor
  */
 
-#ifndef _LM75_H_
-#define _LM75_H_
+#ifndef LM75_H_INCLUDED
+#define LM75_H_INCLUDED
 
 /// I<sup>2</sup>C naslov senzorja na OpenŠARM razvojni plošči
 #define LM75_ADR 0x91
@@ -34,4 +34,5 @@ signed int lm75_get_temp_raw (unsigned char adr);
  */
 void lm75_get_temp (unsigned char adr, signed char *w, signed char *d);
 
+#include "lm75.c"
 #endif

@@ -4,9 +4,10 @@
  *
  */
 
+#ifdef ADC_H_INCLUDED
+
 #include "lpc214x.h"
 #include "timer.h"
-#include "adc.h"
 
 unsigned char adc_init(unsigned char adc_number, unsigned char sampling_resolution)
 {
@@ -296,3 +297,5 @@ unsigned char adc_set_burst_mode(unsigned char adc_number, unsigned char channel
 
 	return 1;
 }
+
+#endif

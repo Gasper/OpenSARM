@@ -1,3 +1,7 @@
+
+#ifndef UART_H_INCLUDED
+#define UART_H_INCLUDED
+
 #define UART_0 0
 #define UART_1 1
 #define DLAB 7
@@ -21,10 +25,5 @@ char get_char(unsigned char uart_number);
 unsigned char putstring(unsigned char uart_number, char *string, unsigned int string_length);
 unsigned char put_s(unsigned char uart_number, char *string);
 
-
-
-
-
-
-
-
+#include "uart.c"
+#endif

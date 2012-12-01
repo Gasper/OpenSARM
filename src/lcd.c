@@ -1,8 +1,10 @@
 /**
  *  2008 John C. Wren
  *  Za OpenSARM prilagodila: Samo Penič in Jernej Sorta
- * 
+ *
  */
+
+#ifdef LCD_H_INCLUDED
 
 #include "lpc214x.h"
 
@@ -325,7 +327,7 @@ void lcdPutString(char *s){
 	{
 		lcdPutChar(s[i]);
 		i++;
-		
+
 	}
 }
 
@@ -369,3 +371,5 @@ void lcdInit(void)
 	lcdDataToPort(0xff);
 	lcdControllerInit();
 }
+
+#endif

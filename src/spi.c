@@ -1,14 +1,19 @@
 /**
  * 2012 OpenSARM
  * Avtor: Jernej Sorta <jernejsorta@gmail.com>
- * 
+ *
  */
+
+ #ifdef SPI_H_INCLUDED
+
+ #include "io.h"
+ #include "spi.h"
 
 int spi_set_speed(unsigned char spi_number, unsigned int speed)
 {
 	if ((spi_number > 1) || (speed > ((CPU_FREQ * 1000) >> 3)) || ((((CPU_FREQ * 1000)) / speed) > 0xFF))
 		return -1; //Če je hitrost večja kot f_cpu/8, ali pa premajhna
-	
+
 	unsigned int calculated_speed = 0;
 	calculated_speed = (CPU_FREQ * 1000) / speed;
 
@@ -35,7 +40,7 @@ char spi_init(unsigned char spi_number, unsigned int speed)
 {
 	if (spi_number > 1)
 		return -1;
-	
+
 	if ((spi_set_speed(spi_number, speed) == -1) || (spi_set_mode(spi_number, 3, 0, 16) == -1))
 		return -1;
 
@@ -90,7 +95,7 @@ char spi_enable_slave(unsigned char spi_number, unsigned char slave_number/*0-3*
 			case 3:
 				break;
 		}
-	
+
 		return 1;
 	}
 }
@@ -117,7 +122,7 @@ char spi_disable_slave(unsigned char spi_number, unsigned char slave_number/*0-3
 			case 3:
 				break;
 		}
-	
+
 		return 1;
 	}
 }
@@ -139,9 +144,9 @@ char spi_transmit_byte(unsigned char spi_number, unsigned char slave_number, cha
 		S0SPDR = data;
 		spi_enable_slave(0, slave_number);
 		while (((S0SPSR >> 7) & 1) != 1 );
-		
+
 		spi_disable_slave(0, slave_number);
-		
+
 		return received_data;
 	}
 }
@@ -164,7 +169,7 @@ int spi_transmit_data(unsigned char spi_number, unsigned char slave_number, int 
 		spi_enable_slave(0, slave_number);
 		S0SPDR = data;
 		while (((S0SPSR >> 7) & 1) != 1);
-		
+
 		spi_disable_slave(0, slave_number);
 	}
 
@@ -186,9 +191,9 @@ int spi_receive_data(unsigned char spi_number, unsigned char slave_number)
 		spi_enable_slave(spi_number, slave_number);
 		S0SPDR = '?';
 		while (((S0SPSR >> 7) & 1) !=1);
-		
+
 		spi_disable_slave(spi_number, slave_number);
-		
+
 		return S0SPDR;
 	}
 }
@@ -208,7 +213,7 @@ char spi_slave_init(unsigned char spi_number, unsigned char slave_number)
 {
 	if ((slave_number > 3) || (spi_number > 1))
 		return -1;
-	
+
 	if (spi_number == 1)
 	{
 		//Podpore za SPI1 še ni
@@ -226,7 +231,9 @@ char spi_slave_init(unsigned char spi_number, unsigned char slave_number)
 			case 3:
 				break;
 		}
-		
+
 		return 1;
 	}
 }
+
+#endif

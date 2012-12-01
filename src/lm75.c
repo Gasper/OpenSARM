@@ -4,6 +4,8 @@
  *
  */
 
+#ifdef LM75_H_INCLUDED
+
 #include "i2c.h"
 
 
@@ -52,3 +54,4 @@ void lm75_get_temp(unsigned char adr, signed char *w, signed char *d)
 	*w = (a * 10) / 20;
 }
 
+#endif

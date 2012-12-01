@@ -4,6 +4,8 @@
  *
  */
 
+#ifdef PWM_H_INCLUDED
+
 /*
 
 Konstanta DELEZ predstavlja odstotno izražanje, torej kjer se prevajalno razmerje piše v %, jih v bistvu pišemo kot odstotek od DELEZ. Na primer, če je DELEZ=1000
@@ -17,7 +19,6 @@ preko nastavitve kanala.
  */
 
 #include "lpc214x.h"
-#include "pwm.h"
 #include "io.h"
 
 void timer_state(unsigned char state)
@@ -385,4 +386,4 @@ unsigned int PWM_BrezKrtack(unsigned int frekvenca, unsigned int prevajalno_razm
   return 1;
 }
 
-
+#endif

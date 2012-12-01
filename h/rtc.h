@@ -1,3 +1,7 @@
+
+#ifndef RTC_H_INCLUDED
+#define RTC_H_INCLUDED
+
 #define IMSEC       0x00000001
 #define IMMIN       0x00000002
 #define IMHOUR      0x00000004
@@ -49,3 +53,6 @@ void rtc_increase_years();
 void rtc_decrease_years();
 int is_leap(unsigned int year);
 int days_of_month(unsigned int month, unsigned int year);
+
+#include "rtc.c"
+#endif

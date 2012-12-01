@@ -4,6 +4,8 @@
  *
  */
 
+#ifdef TIMER_H_INCLUDED
+
 #include "lpc214x.h"
 #include "io.h"
 #include "timer.h"
@@ -462,3 +464,4 @@ char tc_io_capture_config(unsigned char tc_number, unsigned char register_number
 	return 1;
 }
 
+#endif
