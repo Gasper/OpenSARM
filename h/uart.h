@@ -25,5 +25,8 @@ char get_char(unsigned char uart_number);
 unsigned char putstring(unsigned char uart_number, char *string, unsigned int string_length);
 unsigned char put_s(unsigned char uart_number, char *string);
 
+#if ONLY_USED
 #include "uart.c"
+#endif
+
 #endif

@@ -4,7 +4,7 @@
  *
  */
 
-#ifdef LCD_H_INCLUDED
+#if !defined(ONLY_USED) || defined(LCD_H_INCLUDED)
 
 #include "lpc214x.h"
 

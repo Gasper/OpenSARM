@@ -6,9 +6,10 @@
  *
  */
 
-#ifdef IO_H_INCLUDED
+#if !defined(ONLY_USED) || defined(IO_H_INCLUDED)
 
 #include "lpc214x.h"
+#include "io.h"
 
 inline void _TimerInit(void)
 {

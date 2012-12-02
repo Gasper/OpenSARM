@@ -4,7 +4,7 @@
  *
  */
 
-#ifdef LM75_H_INCLUDED
+#if !defined(ONLY_USED) || defined(LM75_H_INCLUDED)
 
 #include "i2c.h"
 

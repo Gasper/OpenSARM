@@ -4,7 +4,7 @@
  *
  */
 
-#ifdef INT_H_INCLUDED
+#if !defined(ONLY_USED) || defined(INT_H_INCLUDED)
 
 #include "lpc214x.h"
 #include "interrupts.h"

@@ -121,5 +121,8 @@ unsigned char PWM_NastaviKanal(unsigned char kanal/*od PWM1-PWM6*/, unsigned cha
 void PWM_PonastaviPrekinitev(unsigned char kanal);
 void PWM_NastaviDogodek(unsigned char kanal, unsigned char dogodek);
 
+#ifdef ONLY_USED
 #include "pwm.c"
+#endif
+
 #endif

@@ -49,5 +49,8 @@ void set_pin_direction(unsigned int pinid, unsigned int dir);
 int read_pin(unsigned int pinid);
 void set_pin(unsigned int pinid, unsigned int value);
 
+#ifdef ONLY_USED
 #include "io.c"
+#endif
+
 #endif // IO_H_INCLUDED

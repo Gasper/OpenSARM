@@ -4,7 +4,7 @@
  *
  */
 
-#ifdef UART_H_INCLUDED
+#if !defined(ONLY_USED) || defined(UART_H_INCLUDED)
 
 #include "lpc214x.h"
 #include "io.h"

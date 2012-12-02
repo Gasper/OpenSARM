@@ -4,7 +4,7 @@
  *
  */
 
-#ifdef PWM_H_INCLUDED
+#if !defined(ONLY_USED) || defined(PWM_H_INCLUDED)
 
 /*
 
@@ -20,6 +20,7 @@ preko nastavitve kanala.
 
 #include "lpc214x.h"
 #include "io.h"
+#include "pwm.h"
 
 void timer_state(unsigned char state)
 {

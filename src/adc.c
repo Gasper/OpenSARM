@@ -4,10 +4,11 @@
  *
  */
 
-#ifdef ADC_H_INCLUDED
+#if !defined(ONLY_USED) || defined(ADC_H_INCLUDED)
 
 #include "lpc214x.h"
 #include "timer.h"
+#include "adc.h"
 
 unsigned char adc_init(unsigned char adc_number, unsigned char sampling_resolution)
 {

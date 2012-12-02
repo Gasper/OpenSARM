@@ -34,5 +34,8 @@ signed int lm75_get_temp_raw (unsigned char adr);
  */
 void lm75_get_temp (unsigned char adr, signed char *w, signed char *d);
 
+#ifdef ONLY_USED
 #include "lm75.c"
+#endif
+
 #endif

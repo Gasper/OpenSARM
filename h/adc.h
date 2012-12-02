@@ -102,5 +102,8 @@ int adc_get_result(unsigned char adc_number, unsigned char adc_channel);
 unsigned char adc_is_done(unsigned char adc_number);
 unsigned char adc_set_io(unsigned char adc_number, unsigned char adc_channel);
 
+#ifdef ONLY_USED
 #include "adc.c"
+#endif
+
 #endif

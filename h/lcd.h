@@ -6,5 +6,8 @@ void lcdInit (void);
 void lcdPutString (char *s);
 void lcdClear (void);
 
+#ifdef ONLY_USED
 #include "lcd.c"
+#endif
+
 #endif

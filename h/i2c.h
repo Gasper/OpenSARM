@@ -23,5 +23,8 @@ void i2c0_start(int addr);
 void i2c0_stop();
 void i2c0_receive(char *buf, unsigned int count);
 
+#ifdef ONLY_USED
 #include "i2c.c"
+#endif
+
 #endif

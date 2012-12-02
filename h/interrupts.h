@@ -78,5 +78,8 @@ void BOD_ISR (void)   __attribute__((interrupt("IRQ")));
 void EINT1_ISR (void)   __attribute__((interrupt("IRQ")));
 void EINT2_ISR (void)   __attribute__((interrupt("IRQ")));
 
+#ifdef ONLY_USED
 #include "interrupts.c"
+#endif
+
 #endif

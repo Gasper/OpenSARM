@@ -4,10 +4,11 @@
  *
  */
 
- #ifdef I2C_H_INCLUDED
+#if !defined(ONLY_USED) || defined(I2C_H_INCLUDED)
 
- #include "lpc214x.h"
- #include "io.h"
+#include "lpc214x.h"
+#include "io.h"
+#include "i2c.h"
 
 char i2c_init(unsigned char i2c_number, unsigned int speed)
 {

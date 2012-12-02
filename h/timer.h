@@ -108,5 +108,8 @@ unsigned int tc_get_capture_value(unsigned char TC_number, unsigned char registe
 char tc_set_capture_control(unsigned char TC_number, unsigned char register_number, unsigned char capture_mode);
 char tc_io_capture_config(unsigned char TC_number, unsigned char register_number, unsigned char capture_pin_num);
 
+#ifdef ONLY_USED
 #include "timer.c"
+#endif
+
 #endif
