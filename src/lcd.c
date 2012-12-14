@@ -279,9 +279,22 @@ static int lcdReadStatus(void)
 	return c;
 }
 
+static void lcdDelayMs(unsigned int timeInMs)
+{
+	unsigned int i;
+	for (i=1; i < timeInMs; i++){
+		lcdDelay450ns();
+		lcdDelay550ns();
+	}
+}
+
 static void lcdWaitWhileBusy(void)
 {
+	#ifdef LCD_DELAY_PAUSE
+	lcdDelayMs(7);
+	#else
 	while (lcdReadStatus() & 0x80);
+	#endif
 }
 
 static void lcdDisplay(unsigned char display)
@@ -300,6 +313,10 @@ void lcdClear(void)
 {
 	lcdWaitWhileBusy();
 	lcdWriteCommand(LCD_COMMAND_CLEAR);
+
+	#ifdef LCD_DELAY_PAUSE
+	lcdDelayMs(7);
+	#endif
 }
 
 static void lcdHome(void)
@@ -328,15 +345,6 @@ void lcdPutString(char *s){
 		lcdPutChar(s[i]);
 		i++;
 
-	}
-}
-
-static void lcdDelayMs(unsigned int timeInMs)
-{
-	unsigned int i;
-	for (i=1; i < timeInMs; i++){
-		lcdDelay450ns();
-		lcdDelay550ns();
 	}
 }
 
